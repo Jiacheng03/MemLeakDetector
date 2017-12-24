@@ -1,0 +1,5 @@
+
+sudo apt-get install valgrind
+
+valgrind --tool=memcheck --show-reachable=yes --read-var-info=yes \
+--verbose --time-stamp=yes --leak-check=full --log-file=logfile.log <debug编译的可执行文件>

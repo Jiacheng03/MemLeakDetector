@@ -3,3 +3,30 @@ sudo apt-get install valgrind
 
 valgrind --tool=memcheck --show-reachable=yes --read-var-info=yes \
 --verbose --time-stamp=yes --leak-check=full --log-file=logfile.log <debug编译的可执行文件>
+
+说明：
+
+1. --tool=<toolname> [default: memcheck]
+	valgrind是一套工具的集合，memcheck是较为常用的一个，作为默认选择；
+	
+2. --show-reachable=yes
+	对于控制范围之外的内存泄漏也进行检测，如全局指针、static指针等；
+	
+3. --read-var-info=yes
+	应用程序会变慢，但是能给出更多的错误细节；
+	
+4. --verbose
+	打印更详细的信息；
+	
+5. --time-stamp=yes
+	顾名思义，显示时间戳；
+	
+6. --leak-check=full
+	展示内存泄露的细节，比如在代码中的位置；
+	
+7. --log-file=logfile.log
+	将valgrind的打印信息输出到指定文件中，否则在直接标准输出；
+	
+8. <debug编译的可执行文件>
+	可执行文件编译时，需要有-g选项；
+	
